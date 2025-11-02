@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sobre Nosotros - Barcino Atelier</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/personalized.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container px-4 px-lg-5">
+            <a class="brand-name" href="index.html">
+                <img src="assets/imgs/logo.webp" alt="Barcino Atelier">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle custom-nav-link custom-dropdown-toggle" id="navbarDropdown"
+                            href="#" data-bs-toggle="dropdown">Colecciones</a>
+                        <ul class="dropdown-menu custom-dropdown-menu">
+                            <li><a class="dropdown-item custom-dropdown-item" href="products.html">Ver todas</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item custom-dropdown-item"
+                                    href="products.html#collares">Collares</a></li>
+                            <li><a class="dropdown-item custom-dropdown-item"
+                                    href="products.html#brazaletes">Brazaletes</a></li>
+                            <li><a class="dropdown-item custom-dropdown-item" href="products.html#aros">Aros</a></li>
+                            <li><a class="dropdown-item custom-dropdown-item" href="products.html#limitada">Edición
+                                    Limitada</a></li>
+                            <li><a class="dropdown-item custom-dropdown-item"
+                                    href="products.html#destacados">Destacados</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link active" href="about-us.html">Sobre
+                            nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="contact.html">Contacto</a></li>
+                </ul>
+
+                <ul class="navbar-nav me-3">
+                    <li id="navGuest" class="nav-item">
+                        <a class="nav-link custom-nav-link" href="login.html"><i
+                                class="bi bi-box-arrow-in-right me-1"></i> Ingresar</a>
+                    </li>
+                    <li id="navUser" class="nav-item dropdown d-none">
+                        <a class="nav-link dropdown-toggle custom-nav-link custom-dropdown-toggle" href="#"
+                            data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle me-1"></i> <span id="navProfileName">Mi perfil</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end custom-dropdown-menu">
+                            <li><a class="dropdown-item custom-dropdown-item" href="profile.html">Perfil</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a id="btnLogout" class="dropdown-item custom-dropdown-item" href="#">Cerrar sesión</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="custom-btn btn-outline-custom" href="cart.html">
+                    <i class="bi bi-cart3 me-1"></i> Carrito
+                    <span class="badge custom-badge ms-1 rounded-pill">3</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-us">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-4 fw-bold mb-3">Orígenes y Tradición</h1>
+                    <p class="lead">Tradición artesanal en joyería desde 1995 en el corazón de Barcelona</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nuestra-historia" class="py-5 section-anchor">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="./assets/imgs/about-us/el-born.webp" alt="Interior del taller artesanal Barcino Atelier en el barrio El Born de Barcelona"
+                        class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6">
+                    <h2>Conoce nuestra historia</h2>
+                    <p class="text-muted mb-4">
+                        Barcino Atelier nació en el histórico barrio de El Born, Barcelona, en 1995.
+                        Fundada por los hermanos Martínez, nuestra joyería combina técnicas ancestrales
+                        con diseños contemporáneos inspirados en la rica herencia mediterránea.
+                    </p>
+                    <p class="text-muted">
+                        Cada pieza que creamos cuenta una historia, capturando la esencia de Barcelona
+                        a través de formas, texturas y materiales seleccionados meticulosamente.
+                        Nuestro compromiso con la artesanía de calidad nos ha permitido mantener vivas
+                        técnicas que se remontan a generaciones de orfebres catalanes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 parallax-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Nuestra Trayectoria</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">1995</h3>
+                        <p class="timeline-text">Apertura de nuestro primer taller en el Barrio de El Born, Barcelona.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">2002</h3>
+                        <p class="timeline-text">Lanzamiento de nuestra primera colección inspirada en la arquitectura
+                            modernista de Gaudí.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">2010</h3>
+                        <p class="timeline-text">Reconocimiento con el Premio Nacional de Artesanía por nuestra
+                            colección "Mediterránea".</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">2018</h3>
+                        <p class="timeline-text">Expansión internacional con presencia en ferias de joyería en Milán y
+                            París.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">2023</h3>
+                        <p class="timeline-text">Inauguración de nuestra tienda online, llevando nuestras joyas a todo
+                            el mundo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nuestro-proceso" class="py-5 section-anchor">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 order-2 order-md-1">
+                    <h2>Nuestro proceso</h2>
+                    <p class="text-muted mb-4">
+                        En Barcino Atelier, cada joya es el resultado de a un proceso meticuloso que combina
+                        técnicas ancestrales con innovación contemporánea. Nuestros artesanos dedican horas
+                        de trabajo manual a cada pieza, asegurando la máxima calidad y atención al detalle.
+                    </p>
+                    <p class="text-muted">
+                        Desde el diseño inicial inspirado en los elementos arquitectónicos y culturales
+                        de Barcelona, hasta el pulido final, cada etapa es supervisada por maestros joyeros
+                        con décadas de experiencia. Utilizamos sólo materiales de la más alta calidad,
+                        seleccionados por su belleza y durabilidad.
+                    </p>
+                    <p class="text-muted">
+                        Este enfoque artesanal nos permite crear joyas únicas que no sólo adornan,
+                        sino que cuentan la historia de nuestra ciudad y llevan consigo el alma de
+                        quienes las elaboran con pasión y dedicación.
+                    </p>
+                </div>
+                <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+                    <img src="./assets/imgs/about-us/our-process.webp" alt="Proceso artesanal detallado mostrando las herramientas y técnicas tradicionales de joyería"
+                        class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Galería del Paso a Paso</h2>
+                    <p class="text-muted mb-5">Descubre paso a paso cómo nuestros maestros artesanos transforman metales
+                        preciosos en joyas únicas</p>
+                </div>
+            </div>
+            <div id="processGallery" class="multi-view-carousel">
+                <div class="carousel-container">
+                    <div class="multi-view d-none d-xl-flex justify-content-center align-items-center">
+                        <div class="image-wrapper">
+                            <img src="./assets/imgs/about-us/carousel/carousel1.webp" class="gallery-img"
+                                alt="Paso 1: Diseño inicial - Bocetos y conceptualización de la joya artesanal" data-index="0">
+                        </div>
+                        <div class="image-wrapper">
+                            <img src="./assets/imgs/about-us/carousel/carousel2.webp" class="gallery-img active"
+                                alt="Paso 2: Selección de materiales - Elección de metales preciosos y gemas" data-index="1">
+                        </div>
+                        <div class="image-wrapper">
+                            <img src="./assets/imgs/about-us/carousel/carousel3.webp" class="gallery-img"
+                                alt="Paso 3: Forjado del metal - Trabajo artesanal del oro y la plata" data-index="2">
+                        </div>
+                        <div class="image-wrapper d-none">
+                            <img src="./assets/imgs/about-us/carousel/carousel4.webp" class="gallery-img"
+                                alt="Paso 4: Engaste de gemas - Colocación precisa de piedras preciosas" data-index="3">
+                        </div>
+                        <div class="image-wrapper d-none">
+                            <img src="./assets/imgs/about-us/carousel/carousel5.webp" class="gallery-img"
+                                alt="Paso 5: Pulido final - Acabado perfecto con técnicas tradicionales" data-index="4">
+                        </div>
+                        <div class="image-wrapper d-none">
+                            <img src="./assets/imgs/about-us/carousel/carousel6.webp" class="gallery-img"
+                                alt="Paso 6: Producto terminado - Joya artesanal lista para su entrega" data-index="5">
+                        </div>
+                    </div>
+
+                    <div class="single-view d-xl-none">
+                        <div class="carousel slide" id="mobileCarousel" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="./assets/imgs/about-us/carousel/carousel1.webp"
+                                        class="d-block w-100 rounded shadow" alt="Paso 1: Diseño inicial - Bocetos y conceptualización de la joya artesanal">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/imgs/about-us/carousel/carousel2.webp"
+                                        class="d-block w-100 rounded shadow" alt="Paso 2: Selección de materiales - Elección de metales preciosos y gemas">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/imgs/about-us/carousel/carousel3.webp"
+                                        class="d-block w-100 rounded shadow" alt="Paso 3: Forjado del metal - Trabajo artesanal del oro y la plata">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/imgs/about-us/carousel/carousel4.webp"
+                                        class="d-block w-100 rounded shadow" alt="Paso 4: Engaste de gemas - Colocación precisa de piedras preciosas">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/imgs/about-us/carousel/carousel5.webp"
+                                        class="d-block w-100 rounded shadow" alt="Paso 5: Pulido final - Acabado perfecto con técnicas tradicionales">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/imgs/about-us/carousel/carousel6.webp"
+                                        class="d-block w-100 rounded shadow" alt="Paso 6: Producto terminado - Joya artesanal lista para su entrega">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#mobileCarousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#mobileCarousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-nav d-none d-xl-flex justify-content-center mt-4 gap-3">
+                    <button class="custom-btn btn-outline-custom btn-small" id="prevBtn">
+                        <i class="bi bi-chevron-left me-1"></i> Anterior
+                    </button>
+                    <button class="custom-btn btn-outline-custom btn-small" id="nextBtn">
+                        Siguiente <i class="bi bi-chevron-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Nuestra Filosofía</h2>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card value-card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-4">
+                                <i class="bi bi-geo-alt-fill display-6 text-primary"></i>
+                            </div>
+                            <h3>Origen Local</h3>
+                            <p class="card-text text-muted">
+                                Todas nuestras piezas se diseñan y fabrican en Barcelona, apoyando a artesanos locales
+                                y utilizando materiales de proximidad siempre que es posible.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card value-card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-4">
+                                <i class="bi bi-tree-fill display-6 text-success"></i>
+                            </div>
+                            <h3>Sostenibilidad</h3>
+                            <p class="card-text text-muted">
+                                Nos comprometemos con prácticas responsables, utilizando metales reciclados
+                                y gemas de proveedores éticos para minimizar nuestro impacto ambiental.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card value-card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-4">
+                                <i class="bi bi-hand-index-thumb-fill display-6 text-warning"></i>
+                            </div>
+                            <h3>Artesanía</h3>
+                            <p class="card-text text-muted">
+                                Cada pieza es creada manualmente con técnicas tradicionales, asegurando
+                                que cada joya sea única y con el sello de calidad de nuestros maestros artesanos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5">
+        <div class="container">
+            <div class="footer-info text-center mt-4 pt-4 color-top">
+                <h3>Datos Del Estudiante</h3>
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <p class="mb-0"><strong>Nombre y Apellido:</strong></p>
+                        <p class="mb-0">Evelyn Mathews</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="mb-0"><strong>Fecha de Nacimiento:</strong></p>
+                        <p class="mb-0">03/10/1995</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="mb-0"><strong>Correo Electrónico:</strong></p>
+                        <p class="mb-0">evelyn.r.mathews@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="m-0 text-center mt-4">© 2025 Barcino Atelier - Joyería Artesanal Barcelona</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

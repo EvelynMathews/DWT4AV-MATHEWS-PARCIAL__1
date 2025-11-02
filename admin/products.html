@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Productos Admin — Barcino Atelier</title>
+
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/styles.css" rel="stylesheet">
+  <link href="../css/personalized.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- NAVBAR (similar a index) -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container px-4 px-lg-5">
+      <a class="brand-name" href="dashboard.html">
+        <img src="../assets/imgs/logo.webp" alt="Barcino Atelier">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDash">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarDash">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item"><a class="nav-link custom-nav-link " href="dashboard.html">Dashboard</a>
+          </li>
+          <li class="nav-item"><a class="nav-link custom-nav-link active" href="products.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link custom-nav-link" href="categories.html">Categorías</a></li>
+          <li class="nav-item"><a class="nav-link custom-nav-link" href="orders.html">Órdenes</a></li>
+          <li class="nav-item"><a class="nav-link custom-nav-link" href="users.html">Usuarios</a></li>
+        </ul>
+
+        <!-- Sesión Admin -->
+        <ul class="navbar-nav me-3">
+          <li id="navUser" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle custom-nav-link custom-dropdown-toggle" href="#"
+              data-bs-toggle="dropdown">
+              <i class="bi bi-person-circle me-1"></i> <span id="navProfileName">Administrador</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end custom-dropdown-menu">
+              <li><a class="dropdown-item custom-dropdown-item" href="profile.html">Mi Perfil</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a id="btnLogout" class="dropdown-item custom-dropdown-item" href="#">Cerrar sesión</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-4">
+    <div class="container">
+
+      <!-- Encabezado + acciones -->
+      <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-3 mb-4">
+        <div>
+          <h1 class="custom-h1 mb-1">Productos</h1>
+          <p class="text-muted mb-0">Gestioná tu catálogo: crear, editar, eliminar y ver detalle</p>
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+          <a href="product-new.html" class="custom-btn btn-primary-custom btn-small">
+            <i class="bi bi-plus-lg me-1"></i>Nuevo producto
+          </a>
+        </div>
+      </div>
+
+      <!-- Mensajes de notificación -->
+      <div id="productDeleteMessage" class="mb-4"></div>
+
+      <!-- Filtros -->
+      <div class="dashboard-card mb-4">
+        <div class="dashboard-card-header flex-wrap">
+          <div class="d-flex flex-wrap align-items-center gap-2">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-funnel"></i>
+              <span class="small text-muted">Categoría: Todas</span>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text bg-transparent border-end-0"><i class="bi bi-search"></i></span>
+              <input class="form-control border-start-0" type="search" placeholder="Buscar producto, SKU…">
+            </div>
+            <button class="btn btn-light-custom btn-sm"><i class="bi bi-sliders"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabla -->
+      <div class="dashboard-card">
+        <div class="dashboard-card-header">
+          <h2 class="custom-h2">Listado de Productos</h2>
+        </div>
+
+        <div class="dashboard-card-body table-container">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0 product-table">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th class="mobile-hidden">Img</th>
+                  <th class="mobile-hidden">SKU</th>
+                  <th class="mobile-hidden">Categoría</th>
+                  <th class="mobile-hidden">Precio</th>
+                  <th class="mobile-hidden">Stock</th>
+                  <th class="mobile-hidden">Estado</th>
+                  <th class="actions-cell">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Fila 1 - Collar Mediterráneo -->
+                <tr>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <span class="fw-semibold">Collar Mediterráneo</span>
+                      <small class="text-muted">Plateado con detalles en azul marino, inspirado en el mar
+                        Mediterráneo</small>
+                    </div>
+                  </td>
+                  <td class="mobile-hidden text-center">
+                    <img class="product-thumb rounded" src="../assets/imgs/products/necklace/necklace-mediterraneo.webp"
+                      alt="Collar Mediterráneo" width="40">
+                  </td>
+                  <td class="mobile-hidden">p01</td>
+                  <td class="mobile-hidden"><span class="badge badge-custom-primary">Destacados</span></td>
+                  <td class="mobile-hidden">€89,00</td>
+                  <td class="mobile-hidden">15</td>
+                  <td class="mobile-hidden"><span class="status-badge status-success">Activo</span></td>
+                  <td class="actions-cell">
+                    <div class="btn-group btn-group-sm">
+                      <a href="product-view.html" class="btn btn-light-custom"><i class="bi bi-eye"></i></a>
+                      <a href="product-edit.html" class="btn btn-light-custom"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-light-custom" data-bs-toggle="modal"
+                        data-bs-target="#modalDeleteProduct"><i class="bi bi-trash3"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 2 - Brazalete Gaudí -->
+                <tr>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <span class="fw-semibold">Brazalete Gaudí</span>
+                      <small class="text-muted">Inspirado en la arquitectura modernista de Antoni Gaudí</small>
+                    </div>
+                  </td>
+                  <td class="mobile-hidden text-center">
+                    <img class="product-thumb rounded" src="../assets/imgs/products/bracelets/bracelet-modernista.webp"
+                      alt="Brazalete Gaudí" width="40">
+                  </td>
+                  <td class="mobile-hidden">p02</td>
+                  <td class="mobile-hidden"><span class="badge badge-custom-primary">Destacados</span></td>
+                  <td class="mobile-hidden">€75,00</td>
+                  <td class="mobile-hidden">8</td>
+                  <td class="mobile-hidden"><span class="status-badge status-success">Activo</span></td>
+                  <td class="actions-cell">
+                    <div class="btn-group btn-group-sm">
+                      <a href="product-view.html" class="btn btn-light-custom"><i class="bi bi-eye"></i></a>
+                      <a href="product-edit.html" class="btn btn-light-custom"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-light-custom" data-bs-toggle="modal"
+                        data-bs-target="#modalDeleteProduct"><i class="bi bi-trash3"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 3 - Collar Barceloneta -->
+                <tr>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <span class="fw-semibold">Collar Barceloneta</span>
+                      <small class="text-muted">Inspirado en las olas y la brisa marina de la playa de
+                        Barceloneta</small>
+                    </div>
+                  </td>
+                  <td class="mobile-hidden text-center">
+                    <img class="product-thumb rounded" src="../assets/imgs/products/necklace/necklace-barceloneta.webp"
+                      alt="Collar Barceloneta" width="40">
+                  </td>
+                  <td class="mobile-hidden">p05</td>
+                  <td class="mobile-hidden"><span class="badge badge-custom-secondary">Collares</span></td>
+                  <td class="mobile-hidden">€95,00</td>
+                  <td class="mobile-hidden">12</td>
+                  <td class="mobile-hidden"><span class="status-badge status-success">Activo</span></td>
+                  <td class="actions-cell">
+                    <div class="btn-group btn-group-sm">
+                      <a href="product-view.html" class="btn btn-light-custom"><i class="bi bi-eye"></i></a>
+                      <a href="product-edit.html" class="btn btn-light-custom"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-light-custom" data-bs-toggle="modal"
+                        data-bs-target="#modalDeleteProduct"><i class="bi bi-trash3"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 4 - Collar Montjuïc -->
+                <tr>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <span class="fw-semibold">Collar Montjuïc</span>
+                      <small class="text-muted">Elegante collar que captura las vistas panorámicas de Barcelona desde
+                        Montjuïc</small>
+                    </div>
+                  </td>
+                  <td class="mobile-hidden text-center">
+                    <img class="product-thumb rounded" src="../assets/imgs/products/necklace/necklace-montjuic.webp"
+                      alt="Collar Montjuïc" width="40">
+                  </td>
+                  <td class="mobile-hidden">p06</td>
+                  <td class="mobile-hidden"><span class="badge badge-custom-secondary">Collares</span></td>
+                  <td class="mobile-hidden">€110,00</td>
+                  <td class="mobile-hidden">7</td>
+                  <td class="mobile-hidden"><span class="status-badge status-success">Activo</span></td>
+                  <td class="actions-cell">
+                    <div class="btn-group btn-group-sm">
+                      <a href="product-view.html" class="btn btn-light-custom"><i class="bi bi-eye"></i></a>
+                      <a href="product-edit.html" class="btn btn-light-custom"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-light-custom" data-bs-toggle="modal"
+                        data-bs-target="#modalDeleteProduct"><i class="bi bi-trash3"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 5 - Brazalete Eixample -->
+                <tr>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <span class="fw-semibold">Brazalete Eixample</span>
+                      <small class="text-muted">Diseño inspirado en el modernismo catalán con formas orgánicas y
+                        fluidas</small>
+                    </div>
+                  </td>
+                  <td class="mobile-hidden text-center">
+                    <img class="product-thumb rounded" src="../assets/imgs/products/bracelets/bracelet-eixample.webp"
+                      alt="Brazalete Eixample" width="40">
+                  </td>
+                  <td class="mobile-hidden">p07</td>
+                  <td class="mobile-hidden"><span class="badge badge-custom-secondary">Brazaletes</span></td>
+                  <td class="mobile-hidden">€68,00</td>
+                  <td class="mobile-hidden">10</td>
+                  <td class="mobile-hidden"><span class="status-badge status-success">Activo</span></td>
+                  <td class="actions-cell">
+                    <div class="btn-group btn-group-sm">
+                      <a href="product-view.html" class="btn btn-light-custom"><i class="bi bi-eye"></i></a>
+                      <a href="product-edit.html" class="btn btn-light-custom"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-light-custom" data-bs-toggle="modal"
+                        data-bs-target="#modalDeleteProduct"><i class="bi bi-trash3"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 6 - Brazalete Costa Brava -->
+                <tr>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <span class="fw-semibold">Brazalete Costa Brava</span>
+                      <small class="text-muted">Conchas naturales y cristal azul que evocan las calas de la Costa
+                        Brava</small>
+                    </div>
+                  </td>
+                  <td class="mobile-hidden text-center">
+                    <img class="product-thumb rounded" src="../assets/imgs/products/bracelets/bracelet-costa-brava.webp"
+                      alt="Brazalete Costa Brava" width="40">
+                  </td>
+                  <td class="mobile-hidden">p08</td>
+                  <td class="mobile-hidden"><span class="badge badge-custom-secondary">Brazaletes</span></td>
+                  <td class="mobile-hidden">€72,00</td>
+                  <td class="mobile-hidden">9</td>
+                  <td class="mobile-hidden"><span class="status-badge status-success">Activo</span></td>
+                  <td class="actions-cell">
+                    <div class="btn-group btn-group-sm">
+                      <a href="product-view.html" class="btn btn-light-custom"><i class="bi bi-eye"></i></a>
+                      <a href="product-edit.html" class="btn btn-light-custom"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-light-custom" data-bs-toggle="modal"
+                        data-bs-target="#modalDeleteProduct"><i class="bi bi-trash3"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 7 - Aros Park Güell -->
+                <tr>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <span class="fw-semibold">Aros Park Güell</span>
+                      <small class="text-muted">Inspirados en los mosaicos coloridos del Park Güell de Barcelona</small>
+                    </div>
+                  </td>
+                  <td class="mobile-hidden text-center">
+                    <img class="product-thumb rounded" src="../assets/imgs/products/earrings/earrings-park-guell.webp"
+                      alt="Aros Park Güell" width="40">
+                  </td>
+                  <td class="mobile-hidden">p09</td>
+                  <td class="mobile-hidden"><span class="badge badge-custom-secondary">Aros</span></td>
+                  <td class="mobile-hidden">€55,00</td>
+                  <td class="mobile-hidden">14</td>
+                  <td class="mobile-hidden"><span class="status-badge status-success">Activo</span></td>
+                  <td class="actions-cell">
+                    <div class="btn-group btn-group-sm">
+                      <a href="product-view.html" class="btn btn-light-custom"><i class="bi bi-eye"></i></a>
+                      <a href="product-edit.html" class="btn btn-light-custom"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-light-custom" data-bs-toggle="modal"
+                        data-bs-target="#modalDeleteProduct"><i class="bi bi-trash3"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 8 - Aros Born -->
+                <tr>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <span class="fw-semibold">Aros Born</span>
+                      <small class="text-muted">Minimalistas con toque bohemio inspirados en el barrio El Born de
+                        Barcelona</small>
+                    </div>
+                  </td>
+                  <td class="mobile-hidden text-center">
+                    <img class="product-thumb rounded" src="../assets/imgs/products/earrings/earrings-el-born.webp"
+                      alt="Aros Born" width="40">
+                  </td>
+                  <td class="mobile-hidden">p10</td>
+                  <td class="mobile-hidden"><span class="badge badge-custom-secondary">Aros</span></td>
+                  <td class="mobile-hidden">€48,00</td>
+                  <td class="mobile-hidden">16</td>
+                  <td class="mobile-hidden"><span class="status-badge status-success">Activo</span></td>
+                  <td class="actions-cell">
+                    <div class="btn-group btn-group-sm">
+                      <a href="product-view.html" class="btn btn-light-custom"><i class="bi bi-eye"></i></a>
+                      <a href="product-edit.html" class="btn btn-light-custom"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-light-custom" data-bs-toggle="modal"
+                        data-bs-target="#modalDeleteProduct"><i class="bi bi-trash3"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 9 - Anillo Gótico -->
+                <tr>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <span class="fw-semibold">Anillo Gótico</span>
+                      <small class="text-muted">Elegante anillo inspirado en la arquitectura del Barrio Gótico de
+                        Barcelona</small>
+                    </div>
+                  </td>
+                  <td class="mobile-hidden text-center">
+                    <img class="product-thumb rounded" src="../assets/imgs/products/rings/ring-gotico.webp"
+                      alt="Anillo Gótico" width="40">
+                  </td>
+                  <td class="mobile-hidden">p11</td>
+                  <td class="mobile-hidden"><span class="badge badge-custom-secondary">Anillos</span></td>
+                  <td class="mobile-hidden">€120,00</td>
+                  <td class="mobile-hidden">8</td>
+                  <td class="mobile-hidden"><span class="status-badge status-success">Activo</span></td>
+                  <td class="actions-cell">
+                    <div class="btn-group btn-group-sm">
+                      <a href="product-view.html" class="btn btn-light-custom"><i class="bi bi-eye"></i></a>
+                      <a href="product-edit.html" class="btn btn-light-custom"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-light-custom" data-bs-toggle="modal"
+                        data-bs-target="#modalDeleteProduct"><i class="bi bi-trash3"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 10 - Anillo Sagrada Familia -->
+                <tr>
+                  <td>
+                    <div class="d-flex flex-column">
+                      <span class="fw-semibold">Anillo Sagrada Familia</span>
+                      <small class="text-muted">Delicado anillo inspirado en los vitrales de la Sagrada Familia</small>
+                    </div>
+                  </td>
+                  <td class="mobile-hidden text-center">
+                    <img class="product-thumb rounded" src="../assets/imgs/products/rings/ring-sagrada-familia.webp"
+                      alt="Anillo Sagrada Familia" width="40">
+                  </td>
+                  <td class="mobile-hidden">p12</td>
+                  <td class="mobile-hidden"><span class="badge badge-custom-secondary">Anillos</span></td>
+                  <td class="mobile-hidden">€95,00</td>
+                  <td class="mobile-hidden">12</td>
+                  <td class="mobile-hidden"><span class="status-badge status-success">Activo</span></td>
+                  <td class="actions-cell">
+                    <div class="btn-group btn-group-sm">
+                      <a href="product-view.html" class="btn btn-light-custom"><i class="bi bi-eye"></i></a>
+                      <a href="product-edit.html" class="btn btn-light-custom"><i class="bi bi-pencil"></i></a>
+                      <button class="btn btn-light-custom" data-bs-toggle="modal"
+                        data-bs-target="#modalDeleteProduct"><i class="bi bi-trash3"></i></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- MODALES -->
+
+      <!-- Eliminar producto -->
+      <div class="modal fade" id="modalDeleteProduct" tabindex="-1" aria-labelledby="modalDeleteProductLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content card-bg">
+            <div class="modal-header border-0">
+              <h3 class="modal-title" id="modalDeleteProductLabel">Eliminar producto</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+              ¿Seguro que querés eliminar este producto? Esta acción no se puede deshacer.
+            </div>
+            <div class="modal-footer border-0">
+              <button class="btn btn-light-custom" data-bs-dismiss="modal">Cancelar</button>
+              <button class="custom-btn btn-secondary-custom" id="confirmDeleteProduct">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- Cierre del container -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-5">
+    <div class="container">
+      <div class="footer-info text-center mt-4 pt-4 color-top">
+        <h3>Datos Del Estudiante</h3>
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <p class="mb-0"><strong>Nombre y Apellido:</strong></p>
+            <p class="mb-0">Evelyn Mathews</p>
+          </div>
+          <div class="col-md-4">
+            <p class="mb-0"><strong>Fecha de Nacimiento:</strong></p>
+            <p class="mb-0">03/10/1995</p>
+          </div>
+          <div class="col-md-4">
+            <p class="mb-0"><strong>Correo Electrónico:</strong></p>
+            <p class="mb-0">evelyn.r.mathews@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/scripts.js"></script>
+</body>
+
+</html>

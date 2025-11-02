@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Barcino Atelier — Catálogo de Joyas</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/personalized.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container px-4 px-lg-5">
+            <a class="brand-name" href="index.html">
+                <img src="assets/imgs/logo.webp" alt="Barcino Atelier">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle custom-nav-link custom-dropdown-toggle active"
+                            id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Colecciones</a>
+                        <ul class="dropdown-menu custom-dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item custom-dropdown-item" href="products.html">Ver todas</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item custom-dropdown-item"
+                                    href="products.html#collares">Collares</a></li>
+                            <li><a class="dropdown-item custom-dropdown-item"
+                                    href="products.html#brazaletes">Brazaletes</a></li>
+                            <li><a class="dropdown-item custom-dropdown-item" href="products.html#aros">Aros</a></li>
+                            <li><a class="dropdown-item custom-dropdown-item" href="products.html#limitada">Edición
+                                    Limitada</a></li>
+                            <li><a class="dropdown-item custom-dropdown-item"
+                                    href="products.html#destacados">Destacados</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="about-us.html">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="contact.html">Contacto</a></li>
+                </ul>
+
+                <!-- Sesión -->
+                <ul class="navbar-nav me-3">
+                    <li id="navGuest" class="nav-item">
+                        <a class="nav-link custom-nav-link" href="login.html"><i
+                                class="bi bi-box-arrow-in-right me-1"></i> Ingresar</a>
+                    </li>
+                    <li id="navUser" class="nav-item dropdown d-none">
+                        <a class="nav-link dropdown-toggle custom-nav-link custom-dropdown-toggle" href="#"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle me-1"></i> <span id="navProfileName">Mi perfil</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end custom-dropdown-menu">
+                            <li><a class="dropdown-item custom-dropdown-item" href="profile.html">Perfil</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a id="btnLogout" class="dropdown-item custom-dropdown-item" href="#">Cerrar sesión</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Carrito -->
+                <a class="custom-btn btn-outline-custom" href="cart.html">
+                    <i class="bi bi-cart3 me-1"></i> Carrito
+                    <span class="badge custom-badge ms-1 rounded-pill">3</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="py-4  border-bottom">
+        <div class="container">
+            <h1 class="custom-h1 text-center mb-5">Joyas Artesanales Únicas</h1>
+
+            <!-- Filtros: categoría -->
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                <button class="btn-outline-custom active" data-filter="all">Todas</button>
+                <button class="btn-outline-custom" data-filter="collares">Collares</button>
+                <button class="btn-outline-custom" data-filter="brazaletes">Brazaletes</button>
+                <button class="btn-outline-custom" data-filter="aros">Aros</button>
+                <button class="btn-outline-custom" data-filter="anillos">Anillos</button>
+                <button class="btn-outline-custom" data-filter="limitada">Edicion Limitada</button>
+                <button class="btn-outline-custom" data-filter="destacados">Destacados</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Grid de Productos - Actualizado para coincidir con Joyas Destacadas -->
+    <main class="py-5 parallax-section">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div id="gridProductos"
+                class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4 justify-content-center">
+
+                <!-- PRODUCTOS DESTACADOS -->
+
+                <!-- Producto 1 - Collar Destacado -->
+                <div class="col d-flex justify-content-center">
+                    <div class="card card-bg h-100 product-card" data-id="p01" data-nombre="Collar Mediterráneo"
+                        data-precio="89.00"
+                        data-descripcion="Plateado con detalles en azul marino, inspirado en el mar Mediterráneo"
+                        data-stock="15" data-categoria="destacados"
+                        data-imagen="assets/imgs/products/necklace/necklace-mediterraneo.webp"
+                        data-fecha-alta="2025-07-10">
+                        <span class="position-absolute top-0 start-0 badge bg-warning text-dark m-2">Destacado</span>
+                        <img class="card-img-top card-img-fixed"
+                            src="assets/imgs/products/necklace/necklace-mediterraneo.webp" alt="Collar Mediterráneo con elementos dorados y detalles marinos inspirados en el Mar Mediterráneo">
+                        <div class="card-body p-4 card-body-fixed">
+                            <div class="text-center">
+                                <h2 class="custom-h2">Collar Mediterráneo</h2>
+                                <p class="text-muted">Con elementos dorados y detalles marinos</p>
+                                <div class="fw-semibold">€89,00</div>
+                                <span class="badge text-bg-light mt-2">Destacado</span>
+                            </div>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <a class="custom-btn btn-outline-custom btn-small btn-flex" href="cart.html">
+                                    <i class="bi bi-cart-fill me-1"></i> Agregar
+                                </a>
+                                <a class="custom-btn btn-primary-custom btn-small btn-flex"
+                                    href="checkout.html?id=p01">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2 - Brazalete Destacado -->
+                <div class="col d-flex justify-content-center">
+                    <div class="card card-bg h-100 product-card" data-id="p02" data-nombre="Brazalete Gaudí"
+                        data-precio="75.00" data-descripcion="Inspirado en la arquitectura modernista de Antoni Gaudí"
+                        data-stock="8" data-categoria="destacados"
+                        data-imagen="assets/imgs/products/bracelets/bracelet-modernista.webp"
+                        data-fecha-alta="2025-06-22">
+                        <span class="position-absolute top-0 start-0 badge bg-warning text-dark m-2">Destacado</span>
+                        <img class="card-img-top card-img-fixed"
+                            src="assets/imgs/products/bracelets/bracelet-modernista.webp" alt="Brazalete Gaudí inspirado en la arquitectura modernista de Antoni Gaudí">
+                        <div class="card-body p-4 card-body-fixed">
+                            <div class="text-center">
+                                <h2 class="custom-h2">Brazalete Gaudí</h2>
+                                <p class="text-muted">Inspirado en la arquitectura modernista</p>
+                                <div class="fw-semibold">€75,00</div>
+                                <span class="badge text-bg-light mt-2">Destacado</span>
+                            </div>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <a class="custom-btn btn-outline-custom btn-small btn-flex" href="cart.html">
+                                    <i class="bi bi-cart-fill me-1"></i> Agregar
+                                </a>
+                                <a class="custom-btn btn-primary-custom btn-small btn-flex"
+                                    href="checkout.html?id=p02">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTOS Edición Limitada -->
+
+
+                <!-- COLLARES -->
+
+                <!-- Producto 5 - Collar -->
+                <div class="col d-flex justify-content-center">
+                    <div class="card card-bg h-100 product-card" data-id="p05" data-nombre="Collar Barceloneta"
+                        data-precio="95.00"
+                        data-descripcion="Inspirado en las olas y la brisa marina de la playa de Barceloneta"
+                        data-stock="12" data-categoria="collares"
+                        data-imagen="assets/imgs/products/necklace/necklace-barceloneta.webp"
+                        data-fecha-alta="2025-06-15">
+                        <img class="card-img-top card-img-fixed"
+                            src="assets/imgs/products/necklace/necklace-barceloneta.webp" alt="Collar artesanal Barceloneta inspirado en la playa emblemática de Barcelona">
+                        <div class="card-body p-4 card-body-fixed">
+                            <div class="text-center">
+                                <h2 class="custom-h2">Collar Barceloneta</h2>
+                                <p class="text-muted">Inspirado en la playa de Barceloneta</p>
+                                <div class="fw-semibold">€95,00</div>
+                                <span class="badge text-bg-light mt-2">Collares</span>
+                            </div>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <a class="custom-btn btn-outline-custom btn-small btn-flex" href="cart.html">
+                                    <i class="bi bi-cart-fill me-1"></i> Agregar
+                                </a>
+                                <a class="custom-btn btn-primary-custom btn-small btn-flex"
+                                    href="checkout.html?id=p05">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 6 - Collar -->
+                <div class="col d-flex justify-content-center">
+                    <div class="card card-bg h-100 product-card" data-id="p06" data-nombre="Collar Montjuïc"
+                        data-precio="110.00"
+                        data-descripcion="Elegante collar que captura las vistas panorámicas de Barcelona desde Montjuïc"
+                        data-stock="7" data-categoria="collares" data-imagen="assets/imgs/casa-batllo-techo.webp"
+                        data-fecha-alta="2025-05-20">
+                        <img class="card-img-top card-img-fixed"
+                            src="assets/imgs/products/necklace/necklace-montjuic.webp" alt="Collar elegante Montjuïc inspirado en la montaña y sus jardines">
+                        <div class="card-body p-4 card-body-fixed">
+                            <div class="text-center">
+                                <h2 class="custom-h2">Collar Montjuïc</h2>
+                                <p class="text-muted">Siguiendo con el legado de Gaudí</p>
+                                <div class="fw-semibold">€110,00</div>
+                                <span class="badge text-bg-light mt-2">Collares</span>
+                            </div>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <a class="custom-btn btn-outline-custom btn-small btn-flex" href="cart.html">
+                                    <i class="bi bi-cart-fill me-1"></i> Agregar
+                                </a>
+                                <a class="custom-btn btn-primary-custom btn-small btn-flex"
+                                    href="checkout.html?id=p06">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BRAZALETES -->
+
+                <!-- Producto 7 - Brazalete -->
+                <div class="col d-flex justify-content-center">
+                    <div class="card card-bg h-100 product-card" data-id="p07" data-nombre="Brazalete Eixample"
+                        data-precio="68.00"
+                        data-descripcion="Diseño inspirado en el modernismo catalán con formas orgánicas y fluidas"
+                        data-stock="10" data-categoria="brazaletes"
+                        data-imagen="assets/imgs/products/bracelets/bracelet-eixample.webp"
+                        data-fecha-alta="2025-06-10">
+                        <img class="card-img-top card-img-fixed"
+                            src="assets/imgs/products/bracelets/bracelet-eixample.webp" alt="Brazalete elegante Eixample inspirado en el barrio modernista de Barcelona">
+                        <div class="card-body p-4 card-body-fixed">
+                            <div class="text-center">
+                                <h2 class="custom-h2">Brazalete Eixample</h2>
+                                <p class="text-muted">Inspirado en el elegante barrio barcelones de L' Eixample</p>
+                                <div class="fw-semibold">€68,00</div>
+                                <span class="badge text-bg-light mt-2">Brazaletes</span>
+                            </div>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <a class="custom-btn btn-outline-custom btn-small btn-flex" href="cart.html">
+                                    <i class="bi bi-cart-fill me-1"></i> Agregar
+                                </a>
+                                <a class="custom-btn btn-primary-custom btn-small btn-flex"
+                                    href="checkout.html?id=p07">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 8 - Brazalete -->
+                <div class="col d-flex justify-content-center">
+                    <div class="card card-bg h-100 product-card" data-id="p08" data-nombre="Brazalete Costa Brava"
+                        data-precio="72.00"
+                        data-descripcion="Conchas naturales y cristal azul que evocan las calas de la Costa Brava"
+                        data-stock="9" data-categoria="brazaletes"
+                        data-imagen="assets/imgs/products/bracelets/bracelet-costa-brava.webp"
+                        data-fecha-alta="2025-05-05">
+                        <img class="card-img-top card-img-fixed"
+                            src="assets/imgs/products/bracelets/bracelet-costa-brava.webp" alt="Brazalete Costa Brava inspirado en las costas catalanas con tonos azules y verdes">
+                        <div class="card-body p-4 card-body-fixed">
+                            <div class="text-center">
+                                <h2 class="custom-h2">Brazalete Costa Brava</h2>
+                                <p class="text-muted">Conchas naturales y cristal azul</p>
+                                <div class="fw-semibold">€72,00</div>
+                                <span class="badge text-bg-light mt-2">Brazaletes</span>
+                            </div>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <a class="custom-btn btn-outline-custom btn-small btn-flex" href="cart.html">
+                                    <i class="bi bi-cart-fill me-1"></i> Agregar
+                                </a>
+                                <a class="custom-btn btn-primary-custom btn-small btn-flex"
+                                    href="checkout.html?id=p08">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AROS -->
+
+                <!-- Producto 9 - Aros -->
+                <div class="col d-flex justify-content-center">
+                    <div class="card card-bg h-100 product-card" data-id="p09" data-nombre="Aros Park Güell"
+                        data-precio="55.00"
+                        data-descripcion="Inspirados en los mosaicos coloridos del Park Güell de Barcelona"
+                        data-stock="14" data-categoria="aros"
+                        data-imagen="assets/imgs/products/earrings/earrings-park-guell.webp"
+                        data-fecha-alta="2025-06-18">
+                        <img class="card-img-top card-img-fixed"
+                            src="assets/imgs/products/earrings/earrings-park-guell.webp" alt="Aros coloridos Park Güell inspirados en los mosaicos de Gaudí">
+                        <div class="card-body p-4 card-body-fixed">
+                            <div class="text-center">
+                                <h2 class="custom-h2">Aros Park Güell</h2>
+                                <p class="text-muted">Inspirados en mosaicos de Gaudí</p>
+                                <div class="fw-semibold">€55,00</div>
+                                <span class="badge text-bg-light mt-2">Aros</span>
+                            </div>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <a class="custom-btn btn-outline-custom btn-small btn-flex" href="cart.html">
+                                    <i class="bi bi-cart-fill me-1"></i> Agregar
+                                </a>
+                                <a class="custom-btn btn-primary-custom btn-small btn-flex"
+                                    href="checkout.html?id=p09">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 10 - Aros -->
+                <div class="col d-flex justify-content-center">
+                    <div class="card card-bg h-100 product-card" data-id="p10" data-nombre="Aros Born"
+                        data-precio="48.00"
+                        data-descripcion="Minimalistas con toque bohemio inspirados en el barrio El Born de Barcelona"
+                        data-stock="16" data-categoria="aros"
+                        data-imagen="assets/imgs/products/earrings/earrings-el-born.webp" data-fecha-alta="2025-05-12">
+                        <img class="card-img-top card-img-fixed"
+                            src="assets/imgs/products/earrings/earrings-el-born.webp" alt="Aros dorados El Born inspirados en el barrio histórico de Barcelona">
+                        <div class="card-body p-4 card-body-fixed">
+                            <div class="text-center">
+                                <h2 class="custom-h2">Aros Born</h2>
+                                <p class="text-muted">Minimalistas con toque bohemio</p>
+                                <div class="fw-semibold">€48,00</div>
+                                <span class="badge text-bg-light mt-2">Aros</span>
+                            </div>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <a class="custom-btn btn-outline-custom btn-small btn-flex" href="cart.html">
+                                    <i class="bi bi-cart-fill me-1"></i> Agregar
+                                </a>
+                                <a class="custom-btn btn-primary-custom btn-small btn-flex"
+                                    href="checkout.html?id=p10">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANILLOS -->
+
+                <!-- Producto 11 - Anillo -->
+                <div class="col d-flex justify-content-center">
+                    <div class="card card-bg h-100 product-card" data-id="p11" data-nombre="Anillo Gótico"
+                        data-precio="120.00"
+                        data-descripcion="Elegante anillo inspirado en la arquitectura del Barrio Gótico de Barcelona"
+                        data-stock="8" data-categoria="anillos"
+                        data-imagen="assets/imgs/products/rings/ring-gotico.webp" data-fecha-alta="2025-08-01">
+                        <img class="card-img-top card-img-fixed" src="assets/imgs/products/rings/ring-gotico.webp"
+                            alt="Anillo Gótico inspirado en la arquitectura medieval del Barrio Gótico">
+                        <div class="card-body p-4 card-body-fixed">
+                            <div class="text-center">
+                                <h2 class="custom-h2">Anillo Gótico</h2>
+                                <p class="text-muted">Inspirado en el Barrio Gótico</p>
+                                <div class="fw-semibold">€120,00</div>
+                                <span class="badge text-bg-light mt-2">Anillos</span>
+                            </div>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <a class="custom-btn btn-outline-custom btn-small btn-flex" href="cart.html">
+                                    <i class="bi bi-cart-fill me-1"></i> Agregar
+                                </a>
+                                <a class="custom-btn btn-primary-custom btn-small btn-flex"
+                                    href="checkout.html?id=p11">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 12 - Anillo -->
+                <div class="col d-flex justify-content-center">
+                    <div class="card card-bg h-100 product-card" data-id="p12" data-nombre="Anillo Sagrada Familia"
+                        data-precio="95.00"
+                        data-descripcion="Delicado anillo inspirado en los vitrales de !la Sagrada Familia"
+                        data-stock="12" data-categoria="anillos"
+                        data-imagen="assets/imgs/products/rings/ring-sagrada-familia.webp" data-fecha-alta="2025-07-28">
+                        <img class="card-img-top card-img-fixed"
+                            src="assets/imgs/products/rings/ring-sagrada-familia.webp" alt="Anillo elegante Sagrada Familia inspirado en la icónica basílica de Gaudí">
+                        <div class="card-body p-4 card-body-fixed">
+                            <div class="text-center">
+                                <h2 class="custom-h2">Anillo Sagrada Familia</h2>
+                                <p class="text-muted">Inspirado en los vitrales de Gaudí</p>
+                                <div class="fw-semibold">€95,00</div>
+                                <span class="badge text-bg-light mt-2">Anillos</span>
+                            </div>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <a class="custom-btn btn-outline-custom btn-small btn-flex" href="cart.html">
+                                    <i class="bi bi-cart-fill me-1"></i> Agregar
+                                </a>
+                                <a class="custom-btn btn-primary-custom btn-small btn-flex"
+                                    href="checkout.html?id=p12">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MÁS PRODUCTOS Edición Limitada -->
+
+                <!-- Producto 3 - Edición Limitada 1 -->
+                <div class="col d-flex justify-content-center">
+                    <div class="card card-bg h-100 product-card" data-id="p03" data-nombre="Edición Aniversario"
+                        data-precio="299.00"
+                        data-descripcion="Pieza conmemorativa por el 5° aniversario de Barcino Atelier, oro 18k y diamantes"
+                        data-stock="1" data-categoria="limitada"
+                        data-imagen="assets/imgs/products/limited/limited-5.webp" data-fecha-alta="2025-08-15">
+                        <span class="position-absolute top-0 start-0 badge bg-danger m-2">Limitada</span>
+                        <img class="card-img-top card-img-fixed" src="assets/imgs/products/limited/limited-5.webp"
+                            alt="Edición Aniversario - Pieza única de 5° aniversario en oro 18k con diamantes">
+                        <div class="card-body p-4 card-body-fixed">
+                            <div class="text-center">
+                                <h2 class="custom-h2">Edición Aniversario</h2>
+                                <p class="text-muted">5° aniversario - Oro 18k y diamantes</p>
+                                <div class="fw-semibold">€299,00</div>
+                                <span class="badge text-bg-light mt-2">Edición Limitada</span>
+                            </div>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <a class="custom-btn btn-outline-custom btn-small btn-flex" href="cart.html">
+                                    <i class="bi bi-cart-fill me-1"></i> Agregar
+                                </a>
+                                <a class="custom-btn btn-primary-custom btn-small btn-flex"
+                                    href="checkout.html?id=p03">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4 - Edición Limitada 2 -->
+                <div class="col d-flex justify-content-center">
+                    <div class="card card-bg h-100 product-card" data-id="p04" data-nombre="Colección Picasso"
+                        data-precio="245.00"
+                        data-descripcion="Inspirado en la etapa azul de Picasso, pieza única con certificado de autenticidad"
+                        data-stock="4" data-categoria="limitada"
+                        data-imagen="assets/imgs/products/limited/limited-picasso.webp" data-fecha-alta="2025-07-20">
+                        <span class="position-absolute top-0 start-0 badge bg-danger m-2">Limitada</span>
+                        <img class="card-img-top card-img-fixed" src="assets/imgs/products/limited/limited-picasso.webp"
+                            alt="Colección Picasso - Joyas únicas inspiradas en la etapa azul del gran artista Pablo Picasso">
+                        <div class="card-body p-4 card-body-fixed">
+                            <div class="text-center">
+                                <h2 class="custom-h2">Colección Picasso</h2>
+                                <p class="text-muted">Inspirado en el gran artista Picasso</p>
+                                <div class="fw-semibold">€245,00</div>
+                                <span class="badge text-bg-light mt-2">Edición Limitada</span>
+                            </div>
+                        </div>
+                        <div class="card-footer custom-card-footer">
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <a class="custom-btn btn-outline-custom btn-small btn-flex" href="cart.html">
+                                    <i class="bi bi-cart-fill me-1"></i> Agregar
+                                </a>
+                                <a class="custom-btn btn-primary-custom btn-small btn-flex"
+                                    href="checkout.html?id=p04">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="footer-info text-center mt-4 pt-4 color-top">
+                <h3>Datos Del Estudiante</h3>
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <p class="mb-0"><strong>Nombre y Apellido:</strong></p>
+                        <p class="mb-0">Evelyn Mathews</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="mb-0"><strong>Fecha de Nacimiento:</strong></p>
+                        <p class="mb-0">03/10/1995</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="mb-0"><strong>Correo Electrónico:</strong></p>
+                        <p class="mb-0">evelyn.r.mathews@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="m-0 text-center mt-4">© 2025 Barcino Atelier - Joyería Artesanal Barcelona</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

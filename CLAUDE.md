@@ -1,0 +1,3 @@
+- Do not use inline styles
+- Do not include javascript or CSS blocks in html
+- do not use !important in the styles

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nueva Orden — Barcino Atelier</title>
+
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/styles.css" rel="stylesheet">
+  <link href="../css/personalized.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container px-4 px-lg-5">
+      <a class="brand-name" href="dashboard.html">
+        <img src="../assets/imgs/logo.webp" alt="Barcino Atelier">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDash">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarDash">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item"><a class="nav-link custom-nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link custom-nav-link" href="products.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link custom-nav-link" href="categories.html">Categorías</a></li>
+          <li class="nav-item"><a class="nav-link custom-nav-link active" href="orders.html">Órdenes</a></li>
+          <li class="nav-item"><a class="nav-link custom-nav-link" href="users.html">Usuarios</a></li>
+        </ul>
+
+        <ul class="navbar-nav me-3">
+          <li id="navUser" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle custom-nav-link custom-dropdown-toggle" href="#"
+              data-bs-toggle="dropdown">
+              <i class="bi bi-person-circle me-1"></i> <span id="navProfileName">Administrador</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end custom-dropdown-menu">
+              <li><a class="dropdown-item custom-dropdown-item" href="profile.html">Mi Perfil</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a id="btnLogout" class="dropdown-item custom-dropdown-item" href="#">Cerrar sesión</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-4">
+    <div class="container">
+
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="orders.html">Órdenes</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Nueva Orden</li>
+        </ol>
+      </nav>
+
+      <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-3 mb-4">
+        <div>
+          <h1 class="custom-h1 mb-1">Crear Nueva Orden</h1>
+          <p class="text-muted mb-0">Complete la información necesaria para crear una nueva orden de compra</p>
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+          <a href="orders.html" class="btn btn-light-custom btn-small">
+            <i class="bi bi-arrow-left me-1"></i>Volver a Órdenes
+          </a>
+        </div>
+      </div>
+
+      <div id="orderNewMessage" class="mb-3"></div>
+
+      <form action="#" method="post">
+        <div class="dashboard-card mb-4">
+          <div class="dashboard-card-header">
+            <h2 class="custom-h2">Detalles de la Orden</h2>
+          </div>
+          <div class="dashboard-card-body">
+            <div class="row">
+              <div class="col-lg-4 mb-3">
+                <label class="form-label text-muted small" for="orderId">ID de la Orden</label>
+                <input type="text" id="orderId" class="form-control fw-semibold fs-5 border-0 bg-transparent p-0"
+                  value="#ORD-AUTO" readonly>
+              </div>
+              <div class="col-lg-4 offset-lg-4 mb-3">
+                <label class="form-label" for="orderStatus">Estado</label>
+                <select class="form-select" id="orderStatus" name="orderStatus">
+                  <option selected>Pendiente</option>
+                  <option>Procesando</option>
+                  <option>Completada</option>
+                  <option>Cancelada</option>
+                  <option>En Transporte</option>
+                  <option>Entregada</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8">
+
+            <div class="dashboard-card mb-4">
+              <div class="dashboard-card-header">
+                <h2 class="custom-h2">Productos</h2>
+              </div>
+              <div class="dashboard-card-body">
+                <div class="mb-4">
+                  <label class="form-label">Buscar Producto para Agregar</label>
+                  <div class="dropdown">
+                    <div class="input-group">
+                      <span class="input-group-text bg-transparent border-end-0"><i class="bi bi-search"></i></span>
+                      <input type="text" class="form-control border-start-0" id="productSearch" name="productSearch"
+                        placeholder="Buscar producto por nombre o SKU..." autocomplete="new-password" spellcheck="false">
+                    </div>
+                    <div class="dropdown-menu w-100 admin-order-dropdown" id="productDropdown">
+                      <a class="dropdown-item product-option" href="#"
+                        data-sku="p01" data-name="Collar Mediterráneo" data-description="Plateado con detalles en azul marino, inspirado en el mar Mediterráneo" data-price="89.00" data-stock="15">
+                        <div class="d-flex align-items-center">
+                          <div class="me-3">
+                            <img class="product-thumb rounded"
+                              src="../assets/imgs/products/necklace/necklace-mediterraneo.webp"
+                              alt="Collar Mediterráneo" width="40">
+                          </div>
+                          <div class="flex-grow-1">
+                            <div class="fw-semibold">Collar Mediterráneo</div>
+                            <div class="text-muted small">SKU: p01</div>
+                            <div class="text-muted small">Plateado con detalles en azul marino</div>
+                          </div>
+                          <div class="text-end">
+                            <div class="fw-bold">€89,00</div>
+                            <span class="badge bg-success">Stock: 15</span>
+                          </div>
+                        </div>
+                      </a>
+                      <a class="dropdown-item product-option" href="#"
+                        data-sku="p02" data-name="Brazalete Gaudí" data-description="Inspirado en la arquitectura modernista de Antoni Gaudí" data-price="75.00" data-stock="8">
+                        <div class="d-flex align-items-center">
+                          <div class="me-3">
+                            <img class="product-thumb rounded"
+                              src="../assets/imgs/products/bracelets/bracelet-modernista.webp" alt="Brazalete Gaudí"
+                              width="40">
+                          </div>
+                          <div class="flex-grow-1">
+                            <div class="fw-semibold">Brazalete Gaudí</div>
+                            <div class="text-muted small">SKU: p02</div>
+                            <div class="text-muted small">Inspirado en la arquitectura modernista</div>
+                          </div>
+                          <div class="text-end">
+                            <div class="fw-bold">€75,00</div>
+                            <span class="badge bg-warning">Stock: 8</span>
+                          </div>
+                        </div>
+                      </a>
+                      <a class="dropdown-item product-option" href="#"
+                        data-sku="p05" data-name="Collar Barceloneta" data-description="Inspirado en las olas y la brisa marina de la playa de Barceloneta" data-price="95.00" data-stock="12">
+                        <div class="d-flex align-items-center">
+                          <div class="me-3">
+                            <img class="product-thumb rounded"
+                              src="../assets/imgs/products/necklace/necklace-barceloneta.webp" alt="Collar Barceloneta"
+                              width="40">
+                          </div>
+                          <div class="flex-grow-1">
+                            <div class="fw-semibold">Collar Barceloneta</div>
+                            <div class="text-muted small">SKU: p05</div>
+                            <div class="text-muted small">Inspirado en las olas y la brisa marina</div>
+                          </div>
+                          <div class="text-end">
+                            <div class="fw-bold">€95,00</div>
+                            <span class="badge bg-success">Stock: 12</span>
+                          </div>
+                        </div>
+                      </a>
+                      <a class="dropdown-item product-option" href="#"
+                        data-sku="BA-ANI-003" data-name="Anillo Barcelona" data-description="Diseño minimalista" data-price="65.00" data-stock="12">
+                        <div class="d-flex align-items-center">
+                          <div class="me-3">
+                            <img class="product-thumb rounded" src="../assets/imgs/casa-batllo-techo.webp"
+                              alt="Anillo Barcelona" width="40">
+                          </div>
+                          <div class="flex-grow-1">
+                            <div class="fw-semibold">Anillo Barcelona</div>
+                            <div class="text-muted small">SKU: BA-ANI-003</div>
+                            <div class="text-muted small">Diseño minimalista</div>
+                          </div>
+                          <div class="text-end">
+                            <div class="fw-bold">€65,00</div>
+                            <span class="badge bg-success">Stock: 12</span>
+                          </div>
+                        </div>
+                      </a>
+                      <a class="dropdown-item product-option" href="#"
+                        data-sku="BA-PEN-005" data-name="Pendientes Gaudí" data-description="Estilo modernista" data-price="55.00" data-stock="8">
+                        <div class="d-flex align-items-center">
+                          <div class="me-3">
+                            <img class="product-thumb rounded" src="../assets/imgs/casa-batllo-techo.webp"
+                              alt="Pendientes Gaudí" width="40">
+                          </div>
+                          <div class="flex-grow-1">
+                            <div class="fw-semibold">Pendientes Gaudí</div>
+                            <div class="text-muted small">SKU: BA-PEN-005</div>
+                            <div class="text-muted small">Estilo modernista</div>
+                          </div>
+                          <div class="text-end">
+                            <div class="fw-bold">€55,00</div>
+                            <span class="badge bg-success">Stock: 8</span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-none d-md-block">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Producto</th>
+                          <th class="text-center">Cantidad</th>
+                          <th class="text-end d-none d-lg-table-cell">Precio Unit.</th>
+                          <th class="text-end">Subtotal</th>
+                          <th class="text-center">Acciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center gap-3">
+                              <img src="../assets/imgs/products/necklace/necklace-mediterraneo.webp"
+                                alt="Collar Mediterráneo" class="product-thumb rounded flex-shrink-0" width="40">
+                              <div>
+                                <span class="fw-semibold d-block">Collar Mediterráneo</span>
+                                <small class="text-muted d-block">SKU: p01</small>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="text-center">
+                            <div class="quantity-controls d-flex align-items-center justify-content-center">
+                              <button type="button" class="custom-btn btn-outline-custom btn-small"
+                                data-action="decrease">
+                                <i class="bi bi-dash"></i>
+                              </button>
+                              <span class="mx-2 quantity-value">1</span>
+                              <button type="button" class="custom-btn btn-outline-custom btn-small"
+                                data-action="increase">
+                                <i class="bi bi-plus"></i>
+                              </button>
+                            </div>
+                          </td>
+                          <td class="text-end d-none d-lg-table-cell">€89,00</td>
+                          <td class="text-end">€89,00</td>
+                          <td class="text-center">
+                            <button type="button" class="btn btn-light-custom btn-sm">
+                              <i class="bi bi-trash3"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="d-md-none">
+                  <div class="border mb-3 p-3 product-card-mobile">
+                    <div class="d-flex align-items-start gap-3 mb-3">
+                      <img src="../assets/imgs/products/necklace/necklace-mediterraneo.webp" alt="Collar Mediterráneo"
+                        class="product-thumb rounded flex-shrink-0" width="50">
+                      <div class="flex-grow-1">
+                        <h3 class="custom-h3 mb-1">Collar Mediterráneo</h3>
+                        <small class="text-muted">SKU: p01</small>
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <div class="mb-3">
+                        <label class="form-label small text-muted mb-2">Cantidad</label>
+                        <div class="quantity-controls d-flex align-items-center justify-content-center">
+                          <button type="button" class="custom-btn btn-outline-custom btn-small"
+                            data-action="decrease">
+                            <i class="bi bi-dash"></i>
+                          </button>
+                          <span class="mx-2 quantity-value">1</span>
+                          <button type="button" class="custom-btn btn-outline-custom btn-small"
+                            data-action="increase">
+                            <i class="bi bi-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label small text-muted mb-1">Subtotal</label>
+                        <div class="fs-5 fw-semibold">€89,00</div>
+                      </div>
+
+                      <div>
+                        <button type="button" class="btn btn-light-custom btn-sm">
+                          <i class="bi bi-trash3"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="dashboard-card mb-4">
+                  <div class="dashboard-card-header">
+                    <h2 class="custom-h2">Cliente</h2>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <div class="mb-3">
+                      <label class="form-label">Buscar Cliente</label>
+                      <div class="dropdown">
+                        <div class="input-group">
+                          <span class="input-group-text bg-transparent border-end-0"><i class="bi bi-search"></i></span>
+                          <input type="text" class="form-control border-start-0" id="clientSearch" name="clientSearch"
+                            placeholder="Buscar cliente por nombre o email..." autocomplete="off" spellcheck="false">
+                        </div>
+                        <div class="dropdown-menu w-100 admin-client-dropdown" id="clientDropdown">
+                          <a class="dropdown-item client-option" href="#"
+                            data-client-id="CLI-001" data-full-name="María González" data-email="maria.gonzalez@email.com" data-nombre="María" data-apellido="González" data-telefono="+34 612 345 678">
+                            <div class="d-flex align-items-center">
+                              <div class="me-3">
+                                <div class="client-avatar-primary">
+                                  MG
+                                </div>
+                              </div>
+                              <div class="flex-grow-1">
+                                <div class="fw-semibold">María González</div>
+                                <div class="text-muted small">maria.gonzalez@email.com</div>
+                                <div class="text-muted small">CLI-001 • +34 612 345 678</div>
+                              </div>
+                            </div>
+                          </a>
+                          <a class="dropdown-item client-option" href="#"
+                            data-client-id="CLI-002" data-full-name="Carlos Ruiz" data-email="carlos.ruiz@email.com" data-nombre="Carlos" data-apellido="Ruiz" data-telefono="+34 687 123 456">
+                            <div class="d-flex align-items-center">
+                              <div class="me-3">
+                                <div class="client-avatar-success">
+                                  CR
+                                </div>
+                              </div>
+                              <div class="flex-grow-1">
+                                <div class="fw-semibold">Carlos Ruiz</div>
+                                <div class="text-muted small">carlos.ruiz@email.com</div>
+                                <div class="text-muted small">CLI-002 • +34 687 123 456</div>
+                              </div>
+                            </div>
+                          </a>
+                          <a class="dropdown-item client-option" href="#"
+                            data-client-id="CLI-003" data-full-name="Ana Martínez" data-email="ana.martinez@email.com" data-nombre="Ana" data-apellido="Martínez" data-telefono="+34 654 789 123">
+                            <div class="d-flex align-items-center">
+                              <div class="me-3">
+                                <div class="client-avatar-warning">
+                                  AM
+                                </div>
+                              </div>
+                              <div class="flex-grow-1">
+                                <div class="fw-semibold">Ana Martínez</div>
+                                <div class="text-muted small">ana.martinez@email.com</div>
+                                <div class="text-muted small">CLI-003 • +34 654 789 123</div>
+                              </div>
+                            </div>
+                          </a>
+                          <a class="dropdown-item client-option" href="#"
+                            data-client-id="CLI-004" data-full-name="Luis Fernández" data-email="luis.fernandez@email.com" data-nombre="Luis" data-apellido="Fernández" data-telefono="+34 612 987 654">
+                            <div class="d-flex align-items-center">
+                              <div class="me-3">
+                                <div class="client-avatar-info">
+                                  LF
+                                </div>
+                              </div>
+                              <div class="flex-grow-1">
+                                <div class="fw-semibold">Luis Fernández</div>
+                                <div class="text-muted small">luis.fernandez@email.com</div>
+                                <div class="text-muted small">CLI-004 • +34 612 987 654</div>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">ID</label>
+                      <input type="text" class="form-control" id="clientId" name="clientId" readonly>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Email</label>
+                      <input type="email" class="form-control" id="clientEmail" name="clientEmail" readonly>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Nombre</label>
+                      <input type="text" class="form-control" id="clientNombre" name="clientNombre" readonly>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Apellido</label>
+                      <input type="text" class="form-control" id="clientApellido" name="clientApellido" readonly>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Teléfono</label>
+                      <input type="tel" class="form-control" id="clientTelefono" name="clientTelefono" readonly>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="dashboard-card mb-4">
+                  <div class="dashboard-card-header">
+                    <h2 class="custom-h2">Dirección de Envío</h2>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <div class="mb-3">
+                      <label class="form-label">Dirección</label>
+                      <input type="text" class="form-control" name="direccion" value="Carrer de Mallorca, 123" readonly>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Piso, Puerta</label>
+                      <input type="text" class="form-control" name="pisoPuerta" value="Piso 3, Puerta B" readonly>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Código Postal</label>
+                      <input type="text" class="form-control" name="codigoPostal" value="08036" readonly>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Ciudad</label>
+                      <input type="text" class="form-control" name="ciudad" value="Barcelona" readonly>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Comunidad Autónoma</label>
+                      <select class="form-select" name="comunidadAutonoma">
+                        <option value="">Seleccionar comunidad...</option>
+                        <option value="andalucia">Andalucía</option>
+                        <option value="aragon">Aragón</option>
+                        <option value="asturias">Asturias</option>
+                        <option value="baleares">Islas Baleares</option>
+                        <option value="canarias">Islas Canarias</option>
+                        <option value="cantabria">Cantabria</option>
+                        <option value="castilla-la-mancha">Castilla-La Mancha</option>
+                        <option value="castilla-leon">Castilla y León</option>
+                        <option value="cataluna" selected>Cataluña</option>
+                        <option value="ceuta">Ceuta</option>
+                        <option value="extremadura">Extremadura</option>
+                        <option value="galicia">Galicia</option>
+                        <option value="madrid">Comunidad de Madrid</option>
+                        <option value="melilla">Melilla</option>
+                        <option value="murcia">Región de Murcia</option>
+                        <option value="navarra">Navarra</option>
+                        <option value="pais-vasco">País Vasco</option>
+                        <option value="la-rioja">La Rioja</option>
+                        <option value="valencia">Comunidad Valenciana</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="col-lg-4">
+
+            <div class="dashboard-card mb-4">
+              <div class="dashboard-card-header">
+                <h2 class="custom-h2">Costos</h2>
+              </div>
+              <div class="dashboard-card-body">
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="text-muted">Subtotal productos:</span>
+                  <span class="fw-semibold" id="subtotalProductos">€89,00</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                  <span class="text-muted">Envío:</span>
+                  <span class="fw-semibold text-success">Gratuito</span>
+                </div>
+                <hr class="my-3">
+                <div class="d-flex justify-content-between">
+                  <span class="fw-bold fs-5">Total:</span>
+                  <span class="fw-bold fs-5">€89,00</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="dashboard-card mb-4">
+              <div class="dashboard-card-header">
+                <h2 class="custom-h2">Método de Pago</h2>
+              </div>
+              <div class="dashboard-card-body">
+                <div class="mb-3">
+                  <label class="form-label">Número de Tarjeta</label>
+                  <input type="text" class="form-control" id="cardNumber" name="cardNumber" value="4111 1111 1111 1111"
+                    placeholder="0000 0000 0000 0000" maxlength="19">
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <label class="form-label">Fecha de Vencimiento</label>
+                    <input type="text" class="form-control" id="cardExpiry" name="cardExpiry" value="12/28"
+                      placeholder="MM/AA" maxlength="5">
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label">CVV</label>
+                    <input type="text" class="form-control" id="cardCvv" name="cardCvv" value="123" placeholder="123"
+                      maxlength="4">
+                  </div>
+                </div>
+                <div class="mb-3 mt-3">
+                  <label class="form-label">Nombre del Titular</label>
+                  <input type="text" class="form-control" id="cardHolder" name="cardHolder" value="María González"
+                    placeholder="Nombre como aparece en la tarjeta">
+                </div>
+              </div>
+            </div>
+
+            <div class="dashboard-card">
+              <div class="dashboard-card-header">
+                <h2 class="custom-h2">Acciones</h2>
+              </div>
+              <div class="dashboard-card-body">
+                <div class="d-grid gap-2">
+                  <button type="button" class="custom-btn btn-primary-custom" id="saveOrderBtn">
+                    <i class="bi bi-check-lg me-1"></i>Crear Orden
+                  </button>
+                  <button type="button" class="custom-btn btn-secondary-custom"
+                    data-redirect="orders.html">
+                    <i class="bi bi-x-lg me-1"></i>Cancelar Orden
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </main>
+
+
+  <footer class="py-5">
+    <div class="container">
+      <div class="footer-info text-center mt-4 pt-4 color-top">
+        <h3>Datos Del Estudiante</h3>
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <p class="mb-0"><strong>Nombre y Apellido:</strong></p>
+            <p class="mb-0">Evelyn Mathews</p>
+          </div>
+          <div class="col-md-4">
+            <p class="mb-0"><strong>Fecha de Nacimiento:</strong></p>
+            <p class="mb-0">03/10/1995</p>
+          </div>
+          <div class="col-md-4">
+            <p class="mb-0"><strong>Correo Electrónico:</strong></p>
+            <p class="mb-0">evelyn.r.mathews@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="../js/scripts.js"></script>
+</body>
+
+</html>

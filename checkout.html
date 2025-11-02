@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/personalized.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container px-4 px-lg-5">
+            <a class="brand-name" href="index.html">
+                <img src="assets/imgs/logo.webp" alt="Barcino Atelier">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle custom-nav-link custom-dropdown-toggle" id="navbarDropdown" href="#"
+                            data-bs-toggle="dropdown">Colecciones</a>
+                        <ul class="dropdown-menu custom-dropdown-menu">
+                            <li><a class="dropdown-item custom-dropdown-item" href="products.html">Ver todas</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item custom-dropdown-item" href="products.html#collares">Collares</a></li>
+                            <li><a class="dropdown-item custom-dropdown-item" href="products.html#brazaletes">Brazaletes</a></li>
+                            <li><a class="dropdown-item custom-dropdown-item" href="products.html#aros">Aros</a></li>
+                            <li><a class="dropdown-item custom-dropdown-item" href="products.html#limitada">Edición Limitada</a></li>
+                            <li><a class="dropdown-item custom-dropdown-item" href="products.html#destacados">Destacados</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="about-us.html">Sobre nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="contact.html">Contacto</a></li>
+                </ul>
+
+                <ul class="navbar-nav me-3">
+                    <li id="navGuest" class="nav-item">
+                        <a class="nav-link custom-nav-link" href="login.html"><i class="bi bi-box-arrow-in-right me-1"></i> Ingresar</a>
+                    </li>
+                    <li id="navUser" class="nav-item dropdown d-none">
+                        <a class="nav-link dropdown-toggle custom-nav-link custom-dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle me-1"></i> <span id="navProfileName">Mi perfil</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item custom-dropdown-item" href="profile.html">Perfil</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a id="btnLogout" class="dropdown-item custom-dropdown-item" href="#">Cerrar sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="custom-btn btn-outline-custom active" href="cart.html">
+                    <i class="bi bi-cart3 me-1"></i> Carrito
+                    <span class="badge custom-badge ms-1 rounded-pill">3</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <h1 class="custom-h1 mb-4">Checkout</h1>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card shadow-sm h-100 card-bg">
+                    <div class="card-body">
+                        <h2 class="custom-h2 mb-4">Productos en el carrito</h2>
+                        <div class="row g-3 align-items-start mb-4 pb-3 border-bottom">
+                            <div class="col-12 col-sm-5 col-md-4">
+                                <img class="img-fluid chk-img" src="assets/imgs/products/necklace/necklace-barceloneta.webp"
+                                    alt="Collar artesanal Barceloneta inspirado en la playa emblemática de Barcelona">
+                            </div>
+                            <div class="col-12 col-sm-7 col-md-8">
+                                <div class="small text-muted mb-1">SKU: COL-005</div>
+                                <h3 class="mb-2 chk-title">Collar Barceloneta</h3>
+                                <p class="custom-bold mb-2">€95,00</p>
+                                <div class="d-flex align-items-center gap-2">
+                                    <label class="form-label m-0 small">Cantidad: 1</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 align-items-start mb-4 pb-3 border-bottom">
+                            <div class="col-12 col-sm-5 col-md-4">
+                                <img class="img-fluid chk-img" src="assets/imgs/products/bracelets/bracelet-eixample.webp"
+                                    alt="Brazalete elegante Eixample inspirado en el barrio modernista de Barcelona">
+                            </div>
+                            <div class="col-12 col-sm-7 col-md-8">
+                                <div class="small text-muted mb-1">SKU: BRA-007</div>
+                                <h3 class="mb-2 chk-title">Brazalete Eixample</h3>
+                                <p class="custom-bold mb-2">€68,00</p>
+                                <div class="d-flex align-items-center gap-2">
+                                    <label class="form-label m-0 small">Cantidad: 1</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 align-items-start">
+                            <div class="col-12 col-sm-5 col-md-4">
+                                <img class="img-fluid chk-img" src="assets/imgs/products/earrings/earrings-park-guell.webp"
+                                    alt="Aros coloridos Park Güell inspirados en los mosaicos de Gaudí">
+                            </div>
+                            <div class="col-12 col-sm-7 col-md-8">
+                                <div class="small text-muted mb-1">SKU: ARO-009</div>
+                                <h3 class="mb-2 chk-title">Aros Park Güell</h3>
+                                <p class="custom-bold mb-2">€55,00</p>
+                                <div class="d-flex align-items-center gap-2">
+                                    <label class="form-label m-0 small">Cantidad: 1</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-top">
+                            <div class="d-flex justify-content-between">
+                                <span>Subtotal:</span>
+                                <span>€218,00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <span>Envío:</span>
+                                <span class="text-success">Gratuito</span>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <span>Impuestos:</span>
+                                <span>€43,60</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-4">
+                                <p class="custom-bold mb-0">Total:</p>
+                                <p class="custom-bold mb-0">€261,60</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card shadow-sm checkout-form-card">
+                    <div class="card-body">
+                        <h2 class="custom-h2 mb-4">Dirección de envío</h2>
+                        <form id="checkoutForm" novalidate>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label for="address" class="form-label">Dirección</label>
+                                    <input class="form-control" id="address" name="address" type="text" value="Passeig de Gràcia, 85" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="pisoPuerta" class="form-label">Piso, Puerta</label>
+                                    <input class="form-control" id="pisoPuerta" name="pisoPuerta" type="text" placeholder="Piso 3, Puerta B">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="city" class="form-label">Ciudad</label>
+                                    <input class="form-control" id="city" name="city" type="text" value="Barcelona" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="postalCode" class="form-label">Código Postal</label>
+                                    <input class="form-control" id="postalCode" name="postalCode" type="text" value="08008" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="comunidadAutonoma" class="form-label">Comunidad Autónoma</label>
+                                    <select class="form-select" id="comunidadAutonoma" name="comunidadAutonoma">
+                                        <option value="">Seleccionar comunidad...</option>
+                                        <option value="andalucia">Andalucía</option>
+                                        <option value="aragon">Aragón</option>
+                                        <option value="asturias">Asturias</option>
+                                        <option value="baleares">Islas Baleares</option>
+                                        <option value="canarias">Islas Canarias</option>
+                                        <option value="cantabria">Cantabria</option>
+                                        <option value="castilla-la-mancha">Castilla-La Mancha</option>
+                                        <option value="castilla-leon">Castilla y León</option>
+                                        <option value="cataluna" selected>Cataluña</option>
+                                        <option value="ceuta">Ceuta</option>
+                                        <option value="extremadura">Extremadura</option>
+                                        <option value="galicia">Galicia</option>
+                                        <option value="madrid">Comunidad de Madrid</option>
+                                        <option value="melilla">Melilla</option>
+                                        <option value="murcia">Región de Murcia</option>
+                                        <option value="navarra">Navarra</option>
+                                        <option value="pais-vasco">País Vasco</option>
+                                        <option value="la-rioja">La Rioja</option>
+                                        <option value="valencia">Comunidad Valenciana</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <hr class="my-4">
+
+                            <h2 class="custom-h2 mt-4 mb-3">Pago</h2>
+                            <div class="row g-3">
+
+                                <div class="col-12">
+                                    <label class="form-label">Número de Tarjeta</label>
+                                    <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Fecha de Vencimiento</label>
+                                    <input type="text" class="form-control" id="cardExpiry" name="cardExpiry" placeholder="MM/AA" maxlength="5">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">CVV</label>
+                                    <input type="text" class="form-control" id="cardCvv" name="cardCvv" placeholder="123" maxlength="4">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Nombre del Titular</label>
+                                    <input type="text" class="form-control" id="cardHolder" name="cardHolder" placeholder="Nombre como aparece en la tarjeta">
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <div class="d-grid gap-2 d-sm-flex mt-3 checkout-actions">
+                                <button id="payButton" class="custom-btn btn-primary-custom btn-small w-100 w-sm-auto"
+                                    type="button">Pagar</button>
+                                <a class="custom-btn btn-outline-custom btn-small w-100 w-sm-auto" href="index.html">Seguir
+                                    comprando</a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-5">
+        <div class="container">
+            <div class="footer-info text-center mt-4 pt-4 color-top">
+                <h3>Datos Del Estudiante</h3>
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <p class="mb-0"><strong>Nombre y Apellido:</strong></p>
+                        <p class="mb-0">Evelyn Mathews</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="mb-0"><strong>Fecha de Nacimiento:</strong></p>
+                        <p class="mb-0">03/10/1995</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="mb-0"><strong>Correo Electrónico:</strong></p>
+                        <p class="mb-0">evelyn.r.mathews@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="m-0 text-center mt-4">© 2025 Barcino Atelier - Joyería Artesanal Barcelona</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
